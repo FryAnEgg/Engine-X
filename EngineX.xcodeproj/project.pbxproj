@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E57992F28F9A8C6002F0316 /* NS_API_GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E57992E28F9A8C6002F0316 /* NS_API_GraphView.swift */; };
+		2E57993428F9D931002F0316 /* API_Summary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E57993228F9D931002F0316 /* API_Summary+CoreDataClass.swift */; };
+		2E57993528F9D931002F0316 /* API_Summary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E57993328F9D931002F0316 /* API_Summary+CoreDataProperties.swift */; };
+		2E715C4428D8E7D4001961DD /* API_File_MetaData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E715C4228D8E7D4001961DD /* API_File_MetaData+CoreDataClass.swift */; };
+		2E715C4528D8E7D4001961DD /* API_File_MetaData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E715C4328D8E7D4001961DD /* API_File_MetaData+CoreDataProperties.swift */; };
+		2E715C4C28D8EDBE001961DD /* API_Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E715C4628D8EDBE001961DD /* API_Account+CoreDataClass.swift */; };
+		2E715C4D28D8EDBE001961DD /* API_Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E715C4728D8EDBE001961DD /* API_Account+CoreDataProperties.swift */; };
+		2E715C4E28D8EDBE001961DD /* API_Interval+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E715C4828D8EDBE001961DD /* API_Interval+CoreDataClass.swift */; };
+		2E715C4F28D8EDBE001961DD /* API_Interval+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E715C4928D8EDBE001961DD /* API_Interval+CoreDataProperties.swift */; };
+		2E715C5428D8FB62001961DD /* API_Timeline+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E715C5228D8FB62001961DD /* API_Timeline+CoreDataClass.swift */; };
+		2E715C5528D8FB62001961DD /* API_Timeline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E715C5328D8FB62001961DD /* API_Timeline+CoreDataProperties.swift */; };
+		F5815EFB288BC2A800CAC987 /* EngineXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5815EFA288BC2A800CAC987 /* EngineXApp.swift */; };
+		F5815EFD288BC2A800CAC987 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5815EFC288BC2A800CAC987 /* ContentView.swift */; };
+		F5815EFF288BC2AB00CAC987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5815EFE288BC2AB00CAC987 /* Assets.xcassets */; };
+		F5815F02288BC2AB00CAC987 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5815F01288BC2AB00CAC987 /* Preview Assets.xcassets */; };
+		F5815F04288BC2AB00CAC987 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5815F03288BC2AB00CAC987 /* Persistence.swift */; };
+		F5815F07288BC2AB00CAC987 /* EngineX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5815F05288BC2AB00CAC987 /* EngineX.xcdatamodeld */; };
+		F5CDD24628B1715C004E6F37 /* NGINX_Endpoint+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD24428B1715C004E6F37 /* NGINX_Endpoint+CoreDataClass.swift */; };
+		F5CDD24728B1715C004E6F37 /* NGINX_Endpoint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD24528B1715C004E6F37 /* NGINX_Endpoint+CoreDataProperties.swift */; };
+		F5CDD24A28B41880004E6F37 /* NGINX_Point+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD24828B41880004E6F37 /* NGINX_Point+CoreDataClass.swift */; };
+		F5CDD24B28B41880004E6F37 /* NGINX_Point+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD24928B41880004E6F37 /* NGINX_Point+CoreDataProperties.swift */; };
+		F5CDD24E28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD24C28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataClass.swift */; };
+		F5CDD24F28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD24D28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataProperties.swift */; };
+		F5CDD25228B45FB3004E6F37 /* NGINX_Server+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD25028B45FB3004E6F37 /* NGINX_Server+CoreDataClass.swift */; };
+		F5CDD25328B45FB3004E6F37 /* NGINX_Server+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CDD25128B45FB3004E6F37 /* NGINX_Server+CoreDataProperties.swift */; };
+		F5DB3B9C2899A57F00A57F64 /* NGINX_File+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DB3B962899A57F00A57F64 /* NGINX_File+CoreDataClass.swift */; };
+		F5DB3B9D2899A57F00A57F64 /* NGINX_File+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DB3B972899A57F00A57F64 /* NGINX_File+CoreDataProperties.swift */; };
+		F5DB3BA22899C23800A57F64 /* NGINX_TimeSlice+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DB3BA02899C23800A57F64 /* NGINX_TimeSlice+CoreDataClass.swift */; };
+		F5DB3BA32899C23800A57F64 /* NGINX_TimeSlice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DB3BA12899C23800A57F64 /* NGINX_TimeSlice+CoreDataProperties.swift */; };
+		F5DB3BCA289D649600A57F64 /* NGINX_WebServer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DB3BC8289D649600A57F64 /* NGINX_WebServer+CoreDataClass.swift */; };
+		F5DB3BCB289D649600A57F64 /* NGINX_WebServer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DB3BC9289D649600A57F64 /* NGINX_WebServer+CoreDataProperties.swift */; };
+		F5DB3BCD289DA8A000A57F64 /* NSGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DB3BCC289DA8A000A57F64 /* NSGraphView.swift */; };
+		F5DB3BCF28A1649F00A57F64 /* NGINX_Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DB3BCE28A1649F00A57F64 /* NGINX_Parser.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2E57992E28F9A8C6002F0316 /* NS_API_GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NS_API_GraphView.swift; sourceTree = "<group>"; };
+		2E57993228F9D931002F0316 /* API_Summary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_Summary+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E57993328F9D931002F0316 /* API_Summary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_Summary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E715C4228D8E7D4001961DD /* API_File_MetaData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_File_MetaData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E715C4328D8E7D4001961DD /* API_File_MetaData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_File_MetaData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E715C4628D8EDBE001961DD /* API_Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_Account+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E715C4728D8EDBE001961DD /* API_Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E715C4828D8EDBE001961DD /* API_Interval+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_Interval+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E715C4928D8EDBE001961DD /* API_Interval+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_Interval+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E715C5228D8FB62001961DD /* API_Timeline+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_Timeline+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E715C5328D8FB62001961DD /* API_Timeline+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API_Timeline+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F5815EF7288BC2A800CAC987 /* EngineX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngineX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5815EFA288BC2A800CAC987 /* EngineXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineXApp.swift; sourceTree = "<group>"; };
+		F5815EFC288BC2A800CAC987 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F5815EFE288BC2AB00CAC987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5815F01288BC2AB00CAC987 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F5815F03288BC2AB00CAC987 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		F5815F06288BC2AB00CAC987 /* EngineX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EngineX.xcdatamodel; sourceTree = "<group>"; };
+		F5815F08288BC2AB00CAC987 /* EngineX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EngineX.entitlements; sourceTree = "<group>"; };
+		F5CDD24428B1715C004E6F37 /* NGINX_Endpoint+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_Endpoint+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F5CDD24528B1715C004E6F37 /* NGINX_Endpoint+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_Endpoint+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F5CDD24828B41880004E6F37 /* NGINX_Point+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_Point+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F5CDD24928B41880004E6F37 /* NGINX_Point+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_Point+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F5CDD24C28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_IP_Address+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F5CDD24D28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_IP_Address+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F5CDD25028B45FB3004E6F37 /* NGINX_Server+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_Server+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F5CDD25128B45FB3004E6F37 /* NGINX_Server+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_Server+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F5DB3B962899A57F00A57F64 /* NGINX_File+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_File+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F5DB3B972899A57F00A57F64 /* NGINX_File+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_File+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F5DB3BA02899C23800A57F64 /* NGINX_TimeSlice+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_TimeSlice+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F5DB3BA12899C23800A57F64 /* NGINX_TimeSlice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_TimeSlice+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F5DB3BC8289D649600A57F64 /* NGINX_WebServer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_WebServer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F5DB3BC9289D649600A57F64 /* NGINX_WebServer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NGINX_WebServer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F5DB3BCC289DA8A000A57F64 /* NSGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSGraphView.swift; sourceTree = "<group>"; };
+		F5DB3BCE28A1649F00A57F64 /* NGINX_Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGINX_Parser.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5815EF4288BC2A800CAC987 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EA7E0062912D4A200F5F15C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E57993328F9D931002F0316 /* API_Summary+CoreDataProperties.swift */,
+				2E57993228F9D931002F0316 /* API_Summary+CoreDataClass.swift */,
+				2E715C5228D8FB62001961DD /* API_Timeline+CoreDataClass.swift */,
+				2E715C5328D8FB62001961DD /* API_Timeline+CoreDataProperties.swift */,
+				2E715C4628D8EDBE001961DD /* API_Account+CoreDataClass.swift */,
+				2E715C4728D8EDBE001961DD /* API_Account+CoreDataProperties.swift */,
+				2E715C4828D8EDBE001961DD /* API_Interval+CoreDataClass.swift */,
+				2E715C4928D8EDBE001961DD /* API_Interval+CoreDataProperties.swift */,
+				2E715C4228D8E7D4001961DD /* API_File_MetaData+CoreDataClass.swift */,
+				2E715C4328D8E7D4001961DD /* API_File_MetaData+CoreDataProperties.swift */,
+				F5CDD25028B45FB3004E6F37 /* NGINX_Server+CoreDataClass.swift */,
+				F5CDD25128B45FB3004E6F37 /* NGINX_Server+CoreDataProperties.swift */,
+				F5CDD24C28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataClass.swift */,
+				F5CDD24D28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataProperties.swift */,
+				F5CDD24828B41880004E6F37 /* NGINX_Point+CoreDataClass.swift */,
+				F5CDD24928B41880004E6F37 /* NGINX_Point+CoreDataProperties.swift */,
+				F5CDD24428B1715C004E6F37 /* NGINX_Endpoint+CoreDataClass.swift */,
+				F5CDD24528B1715C004E6F37 /* NGINX_Endpoint+CoreDataProperties.swift */,
+				F5DB3BC8289D649600A57F64 /* NGINX_WebServer+CoreDataClass.swift */,
+				F5DB3BC9289D649600A57F64 /* NGINX_WebServer+CoreDataProperties.swift */,
+				F5DB3BA02899C23800A57F64 /* NGINX_TimeSlice+CoreDataClass.swift */,
+				F5DB3BA12899C23800A57F64 /* NGINX_TimeSlice+CoreDataProperties.swift */,
+				F5DB3B962899A57F00A57F64 /* NGINX_File+CoreDataClass.swift */,
+				F5DB3B972899A57F00A57F64 /* NGINX_File+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F5815EEE288BC2A800CAC987 = {
+			isa = PBXGroup;
+			children = (
+				2EA7E0062912D4A200F5F15C /* Model */,
+				F5815EF9288BC2A800CAC987 /* EngineX */,
+				F5815EF8288BC2A800CAC987 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5815EF8288BC2A800CAC987 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5815EF7288BC2A800CAC987 /* EngineX.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5815EF9288BC2A800CAC987 /* EngineX */ = {
+			isa = PBXGroup;
+			children = (
+				F5815EFA288BC2A800CAC987 /* EngineXApp.swift */,
+				F5815EFC288BC2A800CAC987 /* ContentView.swift */,
+				F5DB3BCE28A1649F00A57F64 /* NGINX_Parser.swift */,
+				F5815EFE288BC2AB00CAC987 /* Assets.xcassets */,
+				F5815F03288BC2AB00CAC987 /* Persistence.swift */,
+				F5815F08288BC2AB00CAC987 /* EngineX.entitlements */,
+				F5815F05288BC2AB00CAC987 /* EngineX.xcdatamodeld */,
+				F5DB3BCC289DA8A000A57F64 /* NSGraphView.swift */,
+				2E57992E28F9A8C6002F0316 /* NS_API_GraphView.swift */,
+				F5815F00288BC2AB00CAC987 /* Preview Content */,
+			);
+			path = EngineX;
+			sourceTree = "<group>";
+		};
+		F5815F00288BC2AB00CAC987 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F5815F01288BC2AB00CAC987 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5815EF6288BC2A800CAC987 /* EngineX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5815F0B288BC2AB00CAC987 /* Build configuration list for PBXNativeTarget "EngineX" */;
+			buildPhases = (
+				F5815EF3288BC2A800CAC987 /* Sources */,
+				F5815EF4288BC2A800CAC987 /* Frameworks */,
+				F5815EF5288BC2A800CAC987 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EngineX;
+			productName = EngineX;
+			productReference = F5815EF7288BC2A800CAC987 /* EngineX.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5815EEF288BC2A800CAC987 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					F5815EF6288BC2A800CAC987 = {
+						CreatedOnToolsVersion = 13.4;
+					};
+				};
+			};
+			buildConfigurationList = F5815EF2288BC2A800CAC987 /* Build configuration list for PBXProject "EngineX" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5815EEE288BC2A800CAC987;
+			productRefGroup = F5815EF8288BC2A800CAC987 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5815EF6288BC2A800CAC987 /* EngineX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5815EF5288BC2A800CAC987 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5815F02288BC2AB00CAC987 /* Preview Assets.xcassets in Resources */,
+				F5815EFF288BC2AB00CAC987 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5815EF3288BC2A800CAC987 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5815F04288BC2AB00CAC987 /* Persistence.swift in Sources */,
+				2E715C5528D8FB62001961DD /* API_Timeline+CoreDataProperties.swift in Sources */,
+				F5CDD24728B1715C004E6F37 /* NGINX_Endpoint+CoreDataProperties.swift in Sources */,
+				F5CDD24E28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataClass.swift in Sources */,
+				F5DB3BCA289D649600A57F64 /* NGINX_WebServer+CoreDataClass.swift in Sources */,
+				F5CDD24A28B41880004E6F37 /* NGINX_Point+CoreDataClass.swift in Sources */,
+				2E57993528F9D931002F0316 /* API_Summary+CoreDataProperties.swift in Sources */,
+				2E715C4F28D8EDBE001961DD /* API_Interval+CoreDataProperties.swift in Sources */,
+				F5CDD25328B45FB3004E6F37 /* NGINX_Server+CoreDataProperties.swift in Sources */,
+				F5DB3BA22899C23800A57F64 /* NGINX_TimeSlice+CoreDataClass.swift in Sources */,
+				F5DB3BCD289DA8A000A57F64 /* NSGraphView.swift in Sources */,
+				F5815EFD288BC2A800CAC987 /* ContentView.swift in Sources */,
+				2E715C5428D8FB62001961DD /* API_Timeline+CoreDataClass.swift in Sources */,
+				2E715C4C28D8EDBE001961DD /* API_Account+CoreDataClass.swift in Sources */,
+				2E715C4528D8E7D4001961DD /* API_File_MetaData+CoreDataProperties.swift in Sources */,
+				F5CDD25228B45FB3004E6F37 /* NGINX_Server+CoreDataClass.swift in Sources */,
+				F5CDD24B28B41880004E6F37 /* NGINX_Point+CoreDataProperties.swift in Sources */,
+				F5DB3B9C2899A57F00A57F64 /* NGINX_File+CoreDataClass.swift in Sources */,
+				F5DB3BCF28A1649F00A57F64 /* NGINX_Parser.swift in Sources */,
+				F5DB3B9D2899A57F00A57F64 /* NGINX_File+CoreDataProperties.swift in Sources */,
+				2E715C4D28D8EDBE001961DD /* API_Account+CoreDataProperties.swift in Sources */,
+				2E715C4428D8E7D4001961DD /* API_File_MetaData+CoreDataClass.swift in Sources */,
+				2E57992F28F9A8C6002F0316 /* NS_API_GraphView.swift in Sources */,
+				F5CDD24628B1715C004E6F37 /* NGINX_Endpoint+CoreDataClass.swift in Sources */,
+				F5815F07288BC2AB00CAC987 /* EngineX.xcdatamodeld in Sources */,
+				2E715C4E28D8EDBE001961DD /* API_Interval+CoreDataClass.swift in Sources */,
+				F5DB3BA32899C23800A57F64 /* NGINX_TimeSlice+CoreDataProperties.swift in Sources */,
+				F5DB3BCB289D649600A57F64 /* NGINX_WebServer+CoreDataProperties.swift in Sources */,
+				F5CDD24F28B45CE4004E6F37 /* NGINX_IP_Address+CoreDataProperties.swift in Sources */,
+				F5815EFB288BC2A800CAC987 /* EngineXApp.swift in Sources */,
+				2E57993428F9D931002F0316 /* API_Summary+CoreDataClass.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F5815F09288BC2AB00CAC987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F5815F0A288BC2AB00CAC987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		F5815F0C288BC2AB00CAC987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EngineX/EngineX.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EngineX/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shiphawk.EngineX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F5815F0D288BC2AB00CAC987 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EngineX/EngineX.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EngineX/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shiphawk.EngineX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5815EF2288BC2A800CAC987 /* Build configuration list for PBXProject "EngineX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5815F09288BC2AB00CAC987 /* Debug */,
+				F5815F0A288BC2AB00CAC987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5815F0B288BC2AB00CAC987 /* Build configuration list for PBXNativeTarget "EngineX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5815F0C288BC2AB00CAC987 /* Debug */,
+				F5815F0D288BC2AB00CAC987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5815F05288BC2AB00CAC987 /* EngineX.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5815F06288BC2AB00CAC987 /* EngineX.xcdatamodel */,
+			);
+			currentVersion = F5815F06288BC2AB00CAC987 /* EngineX.xcdatamodel */;
+			path = EngineX.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F5815EEF288BC2A800CAC987 /* Project object */;
+}
