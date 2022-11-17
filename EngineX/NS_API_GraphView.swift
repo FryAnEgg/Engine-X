@@ -29,22 +29,51 @@ struct API_ChartViewRepresentable: NSViewRepresentable {
         if metadata.count == 0 {
             return API_GraphView(ep_timelines:ep_timelines, accounts:accounts, accountIntervals:accountIntervals, startDate: Date.distantFuture, endDate: Date.distantFuture, scale_y:scale_y, graphStyle:graphStyle)
         }
-        let stats = metadata[0]
-        let g_start_time = stats.start_time?.addingTimeInterval(Double(cropLeft)*6.0*3600.0)
-        return API_GraphView(ep_timelines:ep_timelines, accounts:accounts, accountIntervals:accountIntervals, startDate: g_start_time!, endDate: stats.end_time!, scale_y:scale_y, graphStyle:graphStyle)
+        print("metadata.count", metadata.count)
+        var start_time = Date.distantFuture
+        var end_time = Date.distantPast
+        for subMetaData in metadata {
+            let et = subMetaData.end_time ?? Date.distantPast
+            if et > end_time {
+                end_time = et
+            }
+            let st = subMetaData.start_time ?? Date.distantFuture
+            if st < start_time {
+                start_time = st
+            }
+        }
+        
+        // let stats = metadata[0]
+        // let g_start_time = stats.start_time?.addingTimeInterval(Double(cropLeft)*6.0*3600.0) // ??
+        return API_GraphView(ep_timelines:ep_timelines, accounts:accounts, accountIntervals:accountIntervals, startDate: start_time, endDate: end_time, scale_y:scale_y, graphStyle:graphStyle)
     }
     
     func updateNSView(_ nsView: API_GraphView, context: Context) {
         nsView.ep_timelines = ep_timelines
         nsView.accounts = accounts
         nsView.accountIntervals = accountIntervals
-        if metadata.count > 0 {
-            let stats = metadata[0]
-            let g_start_time = stats.start_time?.addingTimeInterval(Double(cropLeft)*6.0*3600.0)
-            nsView.startDate = g_start_time!
-            let g_end_time = stats.end_time?.addingTimeInterval(Double(-cropRight)*3600.0)
-            nsView.endDate = g_end_time!
+        var start_time = Date.distantFuture
+        var end_time = Date.distantPast
+        for subMetaData in metadata {
+            let et = subMetaData.end_time ?? Date.distantPast
+            if et > end_time {
+                end_time = et
+            }
+            let st = subMetaData.start_time ?? Date.distantFuture
+            if st < start_time {
+                start_time = st
+            }
         }
+        nsView.startDate = start_time
+        nsView.endDate = end_time
+        
+        //if metadata.count > 0 {
+        //    let stats = metadata[0]
+        //    let g_start_time = stats.start_time?.addingTimeInterval(Double(cropLeft)*6.0*3600.0)
+        //    nsView.startDate = g_start_time!
+        //    let g_end_time = stats.end_time?.addingTimeInterval(Double(-cropRight)*3600.0)
+        //    nsView.endDate = g_end_time!
+        //}
         nsView.graphStyle = graphStyle
     }
 }

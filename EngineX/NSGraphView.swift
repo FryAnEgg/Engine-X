@@ -226,17 +226,18 @@ class NS_GraphView: NSView, NSTextFieldDelegate, NSControlTextEditingDelegate {
             return
         }
         
-        startDate = Date.distantFuture
-        endDate = Date.distantPast
-        for timeSlice in timeSlices {
-            if startDate > timeSlice.date! {
-                startDate = timeSlice.date!
-                print("new startDate", timeSlice.date!)
-            }
-            if endDate < timeSlice.date! {
-                endDate = timeSlice.date!
-            }
-        }
+        //startDate = Date.distantFuture
+        //endDate = Date.distantPast
+        //for timeSlice in timeSlices {
+        //    if startDate > timeSlice.date! {
+        //        startDate = timeSlice.date!
+        //        print("new startDate", timeSlice.date!)
+        //    }
+        //    if endDate < timeSlice.date! {
+        //        endDate = timeSlice.date!
+        //    }
+        //}
+        
         if startDate == endDate || timeSlices.count == 0 {
             return
         }

@@ -392,10 +392,9 @@ struct ContentView: View {
                 
                 continue
             }
-            print("persist account", account_id, Date.now)
-            let accountObject = API_Account(context: viewContext)
-            accountObject.account_id = String(account_id)
             
+            // should only persist account if doesn't already exist
+            let accountObject = fetchOrCreateAPI_Account(account_id, context:viewContext )
             let account_intervals = summaries[account_id] as? [[String:Any]] ?? [[String:Any]]()
             for account_interval in account_intervals {
            
@@ -443,7 +442,7 @@ struct ContentView: View {
                 for key in keys {
                     
                     let endpointSummary = API_Summary(context: viewContext)
-                    let endpoint = key as? String ?? "not a string"
+                    let endpoint = key ?? "not a string"
                     endpointSummary.endpoint = endpoint
                     endpointSummary.account = account_name
                     
@@ -477,17 +476,18 @@ struct ContentView: View {
         let epKeys = endpointTimelines.keys
         print ("epKeys count", epKeys.count, Date.now)
         for epKey in epKeys {
-            let timelineObject = API_Timeline(context: viewContext)
+            
+            // fetch API_Timeline or create ...
+            let timelineObject = fetchOrCreateAPI_Timeline(epKey, context: viewContext)
+            //let timelineObject = API_Timeline(context: viewContext)
             
             let timeline = endpointTimelines[epKey] as? [API_Summary] ?? [API_Summary]()
-            var total_hits = 0
+            var total_hits = timelineObject.total_hits
             for es in timeline {
                 //es.timeline = timelineObject
                 timelineObject.addToSummaries(es)
-                total_hits += Int(es.count)
+                total_hits += Int32(es.count)
             }
-            
-            timelineObject.endpoint = epKey
             
             // get requestType and rootComponent from epKey
             let epString = epKey as NSString
@@ -499,7 +499,7 @@ struct ContentView: View {
             //print("requestType", requestType, "ep", rootComponent)
             
             // this is number of slices with a hit
-            timelineObject.totalCount = Int64(timeline.count)
+            timelineObject.totalCount += Int64(timeline.count)
             
             // total number of hits
             timelineObject.total_hits = Int32(total_hits)
@@ -509,6 +509,49 @@ struct ContentView: View {
         }
          
         PersistenceController.shared.save()
+    }
+    
+    func fetchOrCreateAPI_Account(_ account_id:String, context:NSManagedObjectContext ) -> API_Account {
+        let fetchRequest: NSFetchRequest<API_Account>
+        fetchRequest = API_Account.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "account_id LIKE %@", account_id)
+        do {
+            let api_accounts = try viewContext.fetch(fetchRequest)
+            if api_accounts.count > 0 { // should only be one
+                print("FOUND ACCOUNT", account_id)
+                return api_accounts.first!
+            }
+        }
+        catch {
+            print("catch api_accounts fetch error")
+        }
+        // return new object
+        print("persist account", account_id, Date.now)
+        let accountObject = API_Account(context: viewContext)
+        accountObject.account_id = String(account_id)
+        return accountObject
+    }
+    
+    func fetchOrCreateAPI_Timeline(_ endpoint:String, context:NSManagedObjectContext ) -> API_Timeline {
+        let fetchRequest: NSFetchRequest<API_Timeline>
+        fetchRequest = API_Timeline.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "endpoint LIKE %@", endpoint)
+        do {
+            let api_timelines = try viewContext.fetch(fetchRequest)
+            if api_timelines.count > 0 { // should only be one
+                print("FOUND Timeline", endpoint, api_timelines.count)
+                return api_timelines.first!
+            }
+        }
+        catch {
+            print("catch api_accounts fetch error")
+        }
+        // return new object
+        let timelineObject = API_Timeline(context: viewContext)
+        timelineObject.endpoint = String(endpoint)
+        timelineObject.total_hits = 0
+        timelineObject.totalCount = 0
+        return timelineObject
     }
     
     func remove_API_Objects() {
