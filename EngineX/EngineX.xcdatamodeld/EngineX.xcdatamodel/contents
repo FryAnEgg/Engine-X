@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="API_Account" representedClassName="API_Account" syncable="YES">
+        <attribute name="account_id" optional="YES" attributeType="String"/>
+        <attribute name="account_name" optional="YES" attributeType="String"/>
+        <relationship name="intervals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="API_Interval"/>
+    </entity>
+    <entity name="API_File_MetaData" representedClassName="API_File_MetaData" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="end_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="interval" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="link" optional="YES" attributeType="String"/>
+        <attribute name="start_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="API_Interval" representedClassName="API_Interval" syncable="YES">
+        <attribute name="account_id" optional="YES" attributeType="String"/>
+        <attribute name="account_name" optional="YES" attributeType="String"/>
+        <attribute name="account_sfdc" optional="YES" attributeType="String"/>
+        <attribute name="account_uuid" optional="YES" attributeType="String"/>
+        <attribute name="end_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="start_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="total_apis" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="endpoint_summary" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="API_Summary"/>
+    </entity>
+    <entity name="API_Summary" representedClassName="API_Summary" syncable="YES">
+        <attribute name="account" optional="YES" attributeType="String"/>
+        <attribute name="avg_payload_size" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="endpoint" optional="YES" attributeType="String"/>
+        <attribute name="max_payload_size" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="API_Timeline" representedClassName="API_Timeline" syncable="YES">
+        <attribute name="endpoint" optional="YES" attributeType="String"/>
+        <attribute name="firstDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="total_hits" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="summaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="API_Summary"/>
+    </entity>
+    <entity name="NGINX_Endpoint" representedClassName="NGINX_Endpoint" syncable="YES">
+        <attribute name="display_name" optional="YES" attributeType="String"/>
+        <attribute name="path" optional="YES" attributeType="String"/>
+        <attribute name="requestType" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="NGINX_File" representedClassName="NGINX_File" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="filepath" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="webserver" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="NGINX_IP_Address" representedClassName="NGINX_IP_Address" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="NGINX_Point" representedClassName="NGINX_Point" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="error_count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name_tag" optional="YES" attributeType="String"/>
+        <attribute name="rt_total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="success_count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uct_total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="uht_total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="urt_total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="NGINX_Server" representedClassName="NGINX_Server" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="NGINX_TimeSlice" representedClassName="NGINX_TimeSlice" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="error_count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="interval" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rt_total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="success_count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uct_total" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uht_total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="urt_total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="webServer" optional="YES" attributeType="String"/>
+        <relationship name="endpoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NGINX_Point"/>
+        <relationship name="ip_addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NGINX_Point"/>
+        <relationship name="servers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NGINX_Point"/>
+    </entity>
+    <entity name="NGINX_WebServer" representedClassName="NGINX_WebServer" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="slices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NGINX_TimeSlice"/>
+    </entity>
+</model>
