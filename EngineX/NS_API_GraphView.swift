@@ -19,15 +19,12 @@ struct API_ChartViewRepresentable: NSViewRepresentable {
     var accountIntervals:[API_Interval]
     var metadata:[API_File_MetaData]
     
-    var cropLeft : Int
-    var cropRight : Int
-    var scale_y : Int
     var graphStyle : String
     
     func makeNSView(context: Context) -> API_GraphView {
         
         if metadata.count == 0 {
-            return API_GraphView(ep_timelines:ep_timelines, accounts:accounts, accountIntervals:accountIntervals, startDate: Date.distantFuture, endDate: Date.distantFuture, scale_y:scale_y, graphStyle:graphStyle)
+            return API_GraphView(ep_timelines:ep_timelines, accounts:accounts, accountIntervals:accountIntervals, startDate: Date.distantFuture, endDate: Date.distantFuture, graphStyle:graphStyle)
         }
         print("metadata.count", metadata.count)
         var start_time = Date.distantFuture
@@ -45,7 +42,7 @@ struct API_ChartViewRepresentable: NSViewRepresentable {
         
         // let stats = metadata[0]
         // let g_start_time = stats.start_time?.addingTimeInterval(Double(cropLeft)*6.0*3600.0) // ??
-        return API_GraphView(ep_timelines:ep_timelines, accounts:accounts, accountIntervals:accountIntervals, startDate: start_time, endDate: end_time, scale_y:scale_y, graphStyle:graphStyle)
+        return API_GraphView(ep_timelines:ep_timelines, accounts:accounts, accountIntervals:accountIntervals, startDate: start_time, endDate: end_time, graphStyle:graphStyle)
     }
     
     func updateNSView(_ nsView: API_GraphView, context: Context) {
@@ -75,9 +72,25 @@ struct API_ChartViewRepresentable: NSViewRepresentable {
         //    nsView.endDate = g_end_time!
         //}
         nsView.graphStyle = graphStyle
+        nsView.calculateGraphData()
     }
 }
 
+/* time zone code, will need to parse for +ZZZZ in log to determine local zone
+let timezone = calendar.timeZone
+print ("current startHour", startHour, timezone)
+// set timeZone to PDT
+let tz = TimeZone(abbreviation: "PDT")
+if tz != nil {
+    calendar.timeZone = tz!
+}
+startHour = calendar.component(.hour, from: startDate)
+print ("pacific startHour", startHour, calendar.timeZone.abbreviation())
+//let timeZones = TimeZone.knownTimeZoneIdentifiers
+//print ("timeZones", timeZones)
+//let timezones_2 = TimeZone.abbreviationDictionary
+//print ("timezones_2", timezones_2)
+*/
 
 @available(macOS 12.0, *)
 
@@ -88,23 +101,23 @@ class API_GraphView: NSView, NSTextFieldDelegate, NSControlTextEditingDelegate {
     var max_y = Int64(0)
     
     var graphStyle : String
-    var scale_y : Int
     
     let colors = [NSColor.systemBlue, NSColor.systemBrown, NSColor.systemGray, NSColor.systemGreen, NSColor.systemIndigo, NSColor.systemOrange, NSColor.systemPink, NSColor.systemPurple, NSColor.systemRed, NSColor.systemTeal, NSColor.systemYellow , NSColor.clear , NSColor.black , NSColor.blue , NSColor.brown , NSColor.cyan , NSColor.darkGray , NSColor.gray , NSColor.green , NSColor.lightGray , NSColor.magenta , NSColor.orange , NSColor.purple , NSColor.red , NSColor.white , NSColor.yellow]
     
     var ep_timelines : [API_Timeline] {
         didSet {
-            self.needsDisplay = true
+            //self.calculateGraphData()
+            //self.needsDisplay = true
         }
     }
     var accounts : [API_Account] {
         didSet {
-            self.needsDisplay = true
+            //self.needsDisplay = true
         }
     }
     var accountIntervals : [API_Interval] {
         didSet {
-            self.needsDisplay = true
+            //self.needsDisplay = true
         }
     }
     
@@ -129,14 +142,21 @@ class API_GraphView: NSView, NSTextFieldDelegate, NSControlTextEditingDelegate {
     var attributedTitle = NSAttributedString(string: "", attributes: nil)
     var titleTextField = NSTextField(frame: NSRect(x: 0, y: 0, width: 0, height: 0))
     
-    init(ep_timelines:[API_Timeline], accounts:[API_Account], accountIntervals:[API_Interval], startDate:Date, endDate:Date, scale_y:Int, graphStyle:String) {
+    // graph data
+    var endpoint_sum = [Date:Int64]()
+    var endpoint_title = ""
+    var union_sum = [Date:Int64]()
+    var account_sum = [Date:Int64]()
+    var account_title = ""
+    var selectedTime = [String:Int64]()
+    
+    init(ep_timelines:[API_Timeline], accounts:[API_Account], accountIntervals:[API_Interval], startDate:Date, endDate:Date, graphStyle:String) {
         self.ep_timelines = ep_timelines
         self.accounts = accounts
         self.accountIntervals = accountIntervals
         self.startDate = startDate
         self.endDate = endDate
         self.graphStyle = graphStyle
-        self.scale_y = scale_y
         
         super.init(frame:.zero)
         wantsLayer = true
@@ -252,17 +272,7 @@ class API_GraphView: NSView, NSTextFieldDelegate, NSControlTextEditingDelegate {
         print(recognizer.magnification, recognizer.location(in:self))
     }
     
-    override func draw(_ dirtyRect: NSRect) {
-        
-        super.draw(dirtyRect)
-        if accounts.count == 0 && ep_timelines.count == 0 {
-            print ("nothing to draw")
-            return
-        }
-        // get and save graphics context
-        guard let context = NSGraphicsContext.current else { return }
-        context.saveGraphicsState()
-        
+    func calculateGraphData() {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         timeFormatter.dateStyle = .none
@@ -278,16 +288,13 @@ class API_GraphView: NSView, NSTextFieldDelegate, NSControlTextEditingDelegate {
         hoursDisplayed = (endDate.timeIntervalSince(startDate)) / 3600.0 // hours
         
         g_frame = CGRect(x: frame.minX+inset_left, y: frame.minY+inset_bot, width: frame.width-inset_right-inset_left, height: frame.height-inset_top-inset_bot)
-        
-        var union_sum = [Date:Int64]()
-        var account_sum = [Date:Int64]()
-        var account_title = ""
-        var endpoint_sum = [Date:Int64]()
-        var endpoint_title = ""
-        var selectedTime = [String:Int64]()
-        
+        union_sum = [Date:Int64]()
+        account_sum = [Date:Int64]()
+        account_title = ""
+        endpoint_sum = [Date:Int64]()
+        endpoint_title = ""
+        selectedTime = [String:Int64]()
         // calculate the graphs
-        
         if graphStyle == "Endpoints AND Accounts" {
             var ep_array = [String]()
             for ep in ep_timelines {
@@ -386,7 +393,26 @@ class API_GraphView: NSView, NSTextFieldDelegate, NSControlTextEditingDelegate {
             }
         }
         
+        self.needsDisplay = true
+    }
+    
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        if accounts.count == 0 && ep_timelines.count == 0 {
+            print ("nothing to draw")
+            return
+        }
+        // get and save graphics context
+        guard let context = NSGraphicsContext.current else { return }
+        context.saveGraphicsState()
+        
         // draw the graphs
+        // how many weeks
+        let totalInterval = endDate.timeIntervalSince(startDate)
+        let weekSeconds = Double(7 * 24 * 60 * 60)
+        let weeks = totalInterval/weekSeconds
+        print (weeks, totalInterval, weekSeconds)
+        // breakup by week ...
         // let graphStyles = ["Endpoints", "Accounts", "Endpoints AND Accounts"]
         // draw axes
         drawAxes(g_frame: g_frame)
@@ -623,22 +649,6 @@ class API_GraphView: NSView, NSTextFieldDelegate, NSControlTextEditingDelegate {
         var calendar = Calendar.current
         startHour = calendar.component(.hour, from: startDate)
         
-        /* time zone code, will need to parse for +ZZZZ in log to determine local zone
-        let timezone = calendar.timeZone
-        print ("current startHour", startHour, timezone)
-        // set timeZone to PDT
-        let tz = TimeZone(abbreviation: "PDT")
-        if tz != nil {
-            calendar.timeZone = tz!
-        }
-        startHour = calendar.component(.hour, from: startDate)
-        print ("pacific startHour", startHour, calendar.timeZone.abbreviation())
-        //let timeZones = TimeZone.knownTimeZoneIdentifiers
-        //print ("timeZones", timeZones)
-        //let timezones_2 = TimeZone.abbreviationDictionary
-        //print ("timezones_2", timezones_2)
-        */
-       
         var lastInterval = -1.0
         let linePath = NSBezierPath()
         linePath.lineWidth = 1.0

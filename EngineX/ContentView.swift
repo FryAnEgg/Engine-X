@@ -203,11 +203,6 @@ struct ContentView: View {
                 }.pickerStyle(.menu)
                     .frame(minWidth: 250, maxWidth: 250, minHeight: 30, maxHeight: 30)
                 
-                Stepper("Crop Left", value: $cropLeft, in: 0...100)
-                Text(String(cropLeft))
-                
-                Stepper("Crop Right", value: $cropRight, in: 0...100)
-                Text(String(cropRight))
                 Toggle("Expand Graph", isOn: $expand_graph)
                     .toggleStyle(.checkbox)
                 
@@ -215,7 +210,7 @@ struct ContentView: View {
             }
             if toggleToAPI {
                 Group {
-                    API_ChartViewRepresentable(ep_timelines:selectedTimelines.map{$0}, accounts:selectedAccounts.map{$0}, accountIntervals: selectedIntervals.map{$0}, metadata:metadata.map{$0}, cropLeft:cropLeft, cropRight:cropRight, scale_y:scale_y, graphStyle:graphStyle)
+                    API_ChartViewRepresentable(ep_timelines:selectedTimelines.map{$0}, accounts:selectedAccounts.map{$0}, accountIntervals: selectedIntervals.map{$0}, metadata:metadata.map{$0}, graphStyle:graphStyle)
                         .frame(minWidth: 300, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
                         //.onAppear(perform: refreshSummaries)
                         //.gesture(dragGesture)
